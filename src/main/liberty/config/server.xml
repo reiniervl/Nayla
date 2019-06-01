@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="NaylaServer">
+	<featureManager>
+		<feature>jsp-2.3</feature>
+	</featureManager>
+
+	<httpEndpoint id="defaultHttpEndpoint" httpPort="9080" httpsPort="9443" host="*" />
+
+	<applicationManager autoExpand="true" />
+	<keyStore id="defaultKeyStore" password="mpKeystore" />
+</server>
