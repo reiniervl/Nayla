@@ -28,9 +28,7 @@ public class Ouder extends Persoon {
 	@SuppressWarnings("unchecked")
 	public Ouder(Ouder ouder) {
 		super(ouder);
-		if(ouder == null) {
-			throw new IllegalArgumentException("ouder mag niet null zijn");
-		}
+		
 		this.credentials = (Credentials) ouder.credentials.clone();
 		this.kinderen = (List<Kind>) ((ArrayList<Kind>)ouder.kinderen).clone();
 	}

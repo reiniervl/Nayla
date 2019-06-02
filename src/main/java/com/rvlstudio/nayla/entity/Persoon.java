@@ -60,7 +60,7 @@ public abstract class Persoon extends AbstractEntity {
 
 	@Override
 	public int hashCode() {
-		return this.voorNaam.hashCode();
+		return this.voorNaam.hashCode() ^ this.achterNaam.hashCode();
 	}
 
 	@Override

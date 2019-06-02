@@ -7,10 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
-
-import com.rvlstudio.nayla.entity.data.DataView;
 
 /**
  * Kind
@@ -26,14 +23,11 @@ public class Kind extends Persoon {
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
 	private List<Ouder> ouders = new ArrayList<Ouder>();
 
-	@NotNull
-	@OneToOne
-	private DataView data;
-
 	public Kind() {}
 
 	@SuppressWarnings("unchecked")
 	public Kind(Kind kind) {
+		super(kind);
 		if(kind == null) {
 			 throw new IllegalArgumentException("kind mag niet null zijn");
 		}
@@ -41,16 +35,16 @@ public class Kind extends Persoon {
 		this.ouders = (List<Ouder>) ((ArrayList<Ouder>)kind.ouders).clone();
 	}
 
-	public Kind(LocalDate geboorteDatum, List<Ouder> ouders, DataView data) {
+	public Kind(String voorNaam, String achterNaam, LocalDate geboorteDatum, Ouder ouder) {
+		super(voorNaam, achterNaam);
 		if(geboorteDatum == null) {
 			 throw new IllegalArgumentException("geboorteDatum mag niet null zijn");
 		}
-		if(ouders == null) {
-			 throw new IllegalArgumentException("ouders mag niet null zijn");
+		if(ouder == null) {
+			 throw new IllegalArgumentException("ouder mag niet null zijn");
 		}
-		if(data == null) {
-			 throw new IllegalArgumentException("data mag niet null zijn");
-		}
+		this.geboorteDatum = geboorteDatum;
+		this.ouders.add(ouder);
 	}
 
 	public LocalDate getGeboorteDatum() {
@@ -59,14 +53,6 @@ public class Kind extends Persoon {
 
 	public void setGeboorteDatum(LocalDate geboorteDatum) {
 		this.geboorteDatum = geboorteDatum;
-	}
-
-	public DataView getData() {
-		return data;
-	}
-
-	public void setData(DataView data) {
-		this.data = data;
 	}
 	
 	public boolean addOuder(Ouder ouder) {
@@ -82,12 +68,11 @@ public class Kind extends Persoon {
 		return super.equals(o)
 			&& o instanceof Kind
 			&& this.geboorteDatum.equals(((Kind)o).getGeboorteDatum())
-			&& this.ouders.equals(((Kind)o).ouders)
-			&& this.data.equals(((Kind)o).getData());
+			&& this.ouders.equals(((Kind)o).ouders);
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "Kind [data=" + data + ", geboorteDatum=" + geboorteDatum + ", ouders=" + ouders + "]";
+		return super.toString() + "Kind [geboorteDatum=" + geboorteDatum + ", ouders=" + ouders + "]";
 	}
 }

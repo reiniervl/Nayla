@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
  * Credentials
  */
 @Embeddable
-public class Credentials implements Serializable {
+public class Credentials implements Serializable, Cloneable {
 	private static final long serialVersionUID = 1L;
 
 	@NotNull
