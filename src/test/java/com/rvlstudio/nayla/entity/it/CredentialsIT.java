@@ -1,4 +1,4 @@
-package com.rvlstudio.nayla.entity;
+package com.rvlstudio.nayla.entity.it;
 
 import static org.junit.Assert.assertEquals;
 

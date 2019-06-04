@@ -28,9 +28,6 @@ public class Kind extends Persoon {
 	@SuppressWarnings("unchecked")
 	public Kind(Kind kind) {
 		super(kind);
-		if(kind == null) {
-			 throw new IllegalArgumentException("kind mag niet null zijn");
-		}
 		this.geboorteDatum = kind.geboorteDatum;
 		this.ouders = (List<Ouder>) ((ArrayList<Ouder>)kind.ouders).clone();
 	}
