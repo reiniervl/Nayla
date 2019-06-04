@@ -23,21 +23,15 @@ public class Temperatuur extends DataItem implements Comparable<Temperatuur> {
 	
 	public Temperatuur(Temperatuur temperatuur) {
 		super(temperatuur);
-		if(temperatuur == null) {
-			throw new IllegalArgumentException("melk mag niet null zijn");
-		}
 		this.graden = temperatuur.graden;
 	}
 
-	public Temperatuur(Kind kind, LocalDateTime tijd, Double graden) {
+	public Temperatuur(Kind kind, LocalDateTime tijd, double graden) {
 		super(kind, tijd);
-		if(graden == null) {
-			throw new IllegalArgumentException("graden mag niet null zijn");
-		}
 		this.graden = graden;
 	}
 
-	public Double getGraden() {
+	public double getGraden() {
 		return graden;
 	}
 

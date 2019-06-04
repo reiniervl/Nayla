@@ -21,6 +21,18 @@ public class AbstractEntityTest {
 	}
 
 	@Test
+	public void testCopyConstructor() {
+		AbstractEntity ae1 = generateAbstractEntity(2);
+		AbstractEntity ae2 = new AbstractEntity(ae1) {};
+		assertEquals(ae1, ae2);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public  void testCopyConstructorNull() {
+		new AbstractEntity(null) {};
+	}
+
+	@Test
 	public void testGetter() {
 		AbstractEntity a = generateAbstractEntity(2);
 		assertEquals(2, (int)a.getId());

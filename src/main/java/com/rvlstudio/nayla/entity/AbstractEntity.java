@@ -19,6 +19,13 @@ public abstract class AbstractEntity implements Serializable {
 
 	public AbstractEntity() {}
 
+	public AbstractEntity(AbstractEntity abstractEntity) {
+		if(abstractEntity == null) {
+			throw new IllegalArgumentException("Entity mag niet null zijn");
+		}
+		this.id = abstractEntity.id;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}

@@ -26,9 +26,7 @@ public abstract class DataItem extends AbstractEntity {
 	public DataItem() {}
 
 	public DataItem(DataItem dataItem) {
-		if(dataItem == null) {
-			throw new IllegalArgumentException("dataItem mag niet null zijn");
-		}
+		super(dataItem);
 		this.kind = dataItem.kind;
 		this.tijd = dataItem.tijd;
 	}
@@ -58,6 +56,7 @@ public abstract class DataItem extends AbstractEntity {
 	public boolean equals(Object o) {
 		return super.equals(o)
 			&& o instanceof DataItem
+			&& this.kind.equals(((DataItem)o).getKind())
 			&& this.tijd.equals(((DataItem)o).getTijd());
 	}
 

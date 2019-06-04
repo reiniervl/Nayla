@@ -23,21 +23,15 @@ public class Melk extends DataItem implements Comparable<Melk> {
 
 	public Melk(Melk melk) {
 		super(melk);
-		if(melk == null) {
-			throw new IllegalArgumentException("melk mag niet null zijn");
-		}
 		this.mililiter = melk.mililiter;
 	}
 
-	public Melk(Kind kind, LocalDateTime tijd, Integer mililiter) {
+	public Melk(Kind kind, LocalDateTime tijd, int mililiter) {
 		super(kind, tijd);
-		if(mililiter == null) {
-			throw new IllegalArgumentException("mililiter mag niet null zijn");
-		}
 		this.mililiter = mililiter;
 	}
 
-	public Integer getMililiter() {
+	public int getMililiter() {
 		return mililiter;
 	}
 
