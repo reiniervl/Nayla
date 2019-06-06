@@ -33,12 +33,12 @@ public class TemperatuurTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testParamConstructorKindNull() {
-		Temperatuur di = new Temperatuur(null, tijd, 200);
+		new Temperatuur(null, tijd, 200);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testParamConstructorTijdNull() {
-		Temperatuur temp = new Temperatuur(KindTest.generateKind(false), null, 200);
+		new Temperatuur(KindTest.generateKind(false), null, 200);
 	}
 
 	@Test

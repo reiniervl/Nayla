@@ -17,7 +17,9 @@ public class Account {
 					@FormParam("username") String username,
 					@FormParam("password") String password,
 					@Context HttpServletRequest request,
-					@Context HttpServletResponse response) {
+					@Context HttpServletResponse response) throws IOException {
+		request.getSession().setAttribute("username", username);
+		response.sendRedirect(request.getContextPath() + "/inloggen.jsp");
 	}
 
 	@GET
@@ -25,7 +27,8 @@ public class Account {
 	public void uitloggen(
 					@Context HttpServletRequest request,
 					@Context HttpServletResponse response) throws IOException {
+		String path = request.getContextPath();
 		request.getSession().invalidate();
-		response.sendRedirect(request.getContextPath());
+		response.sendRedirect(path);
 	}
 }

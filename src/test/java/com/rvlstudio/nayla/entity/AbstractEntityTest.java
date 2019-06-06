@@ -23,13 +23,15 @@ public class AbstractEntityTest {
 	@Test
 	public void testCopyConstructor() {
 		AbstractEntity ae1 = generateAbstractEntity(2);
-		AbstractEntity ae2 = new AbstractEntity(ae1) {};
+		AbstractEntity ae2 = new AbstractEntity(ae1) {
+			private static final long serialVersionUID = 1L;};
 		assertEquals(ae1, ae2);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public  void testCopyConstructorNull() {
-		new AbstractEntity(null) {};
+		new AbstractEntity(null) {
+			private static final long serialVersionUID = 1L;};
 	}
 
 	@Test

@@ -14,24 +14,32 @@ public class DataItemTest {
 
 	@Test
 	public void testConstructor() {
-		new DataItem(){};
+		new DataItem(){
+			private static final long serialVersionUID = 1L;
+		};
 	}
 
 	@Test
 	public void testCopyConstructor() {
 		DataItem di1 = generate(false);
-		DataItem di2 = new DataItem(di1) {};
+		DataItem di2 = new DataItem(di1) {
+			private static final long serialVersionUID = 1L;
+		};
 		assertEquals(di1, di2);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testCopyConstructorNull() {
-		new DataItem(null) {};
+		new DataItem(null) {
+			private static final long serialVersionUID = 1L;
+		};
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testParamConstructorKindNull() {
-		DataItem di = new DataItem(null, tijd) {};
+		DataItem di = new DataItem(null, tijd) {
+			private static final long serialVersionUID = 1L;
+		};
 		try {
 			Field idField = AbstractEntity.class.getDeclaredField("id");
 			idField.setAccessible(true);
@@ -43,7 +51,9 @@ public class DataItemTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testParamConstructorTijdNull() {
-		DataItem di = new DataItem(KindTest.generateKind(false), null) {};
+		DataItem di = new DataItem(KindTest.generateKind(false), null) {
+			private static final long serialVersionUID = 1L;
+		};
 		try {
 			Field idField = AbstractEntity.class.getDeclaredField("id");
 			idField.setAccessible(true);
@@ -95,7 +105,9 @@ public class DataItemTest {
 	}
 
 	public static DataItem generate(boolean random) {
-		DataItem di = new DataItem(KindTest.generateKind(random), tijd) {};
+		DataItem di = new DataItem(KindTest.generateKind(random), tijd) {
+			private static final long serialVersionUID = 1L;
+		};
 		try {
 			Field idField = AbstractEntity.class.getDeclaredField("id");
 			idField.setAccessible(true);

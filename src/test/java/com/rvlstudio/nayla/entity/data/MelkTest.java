@@ -33,12 +33,12 @@ public class MelkTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testParamConstructorKindNull() {
-		Melk di = new Melk(null, tijd, 200);
+		new Melk(null, tijd, 200);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testParamConstructorTijdNull() {
-		Melk melk = new Melk(KindTest.generateKind(false), null, 200);
+		new Melk(KindTest.generateKind(false), null, 200);
 	}
 
 	@Test

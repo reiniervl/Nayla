@@ -1,3 +1,67 @@
+/* color palette */
+:root {
+	--c-beige: #EDC7B7;
+	--c-light: #EEE2DC;
+	--c-grey: #BAB2B5;
+	--c-blue: #123C69;
+	--c-pink: #AC3B61;
+	--c-text: #32393d;
+}
+
+/* general */
 * {
     font-family: sans;
+}
+
+.account_menu {
+	background-color: var(--c-pink);
+	border: 1px solid var(--c-pink);
+	border-radius: 3px;
+	margin: 0 2px;
+	padding: 2px 8px 2px 8px;
+}
+.account_menu:hover {
+	background-color: rgb(252, 145, 181);
+	border-color: rgb(252, 145, 181);
+}
+.account_menu a {
+	color: white;
+	padding: 0;
+	text-decoration: none;
+}
+.account_menu a:hover {
+	color: white;
+}
+body {
+	background-color: var(--c-beige);
+	color: var(--c-text);
+	margin: 0;
+}
+.brand, h1, h2, h3, h4, h5, h6 {
+	color: var(--c-pink);
+}
+.brand span {
+	font-size: 1.4em;
+}
+header a {
+	color: var(--c-blue);
+	padding-left: 1em;
+	text-decoration: none;
+}
+header a:hover {
+	color: var(--c-pink);
+}
+nav {
+	padding-top:2px;
+	width: 100%;
+}
+nav ul {
+	display: flex;
+	list-style-type: none;
+	margin: 0 0 0 auto;
+}
+.ribbon {
+	background-color: var(--c-light);
+	display: flex;
+	padding: 0.2em 0 0.5em 0;
 }

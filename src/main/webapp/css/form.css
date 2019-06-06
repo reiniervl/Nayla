@@ -1,0 +1,27 @@
+#inloggen {
+	background-color: white;
+	border-radius: 3px;
+	margin: 4px 8px;
+	max-width:320px;
+	overflow: hidden;
+	padding: 0.2em 1em;
+}
+#inloggen input {
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+	margin: 2px 0;
+	padding: 2px 4px;
+    width: 100%;
+}
+#inloggen input[type=submit] {
+	background-color: var(--c-pink);
+	border: 1px solid var(--c-pink);
+	border-radius: 3px;
+	color: white;
+	float: right;
+	width: unset;
+}
+#inloggen input[type=submit]:hover {
+	background-color: rgb(252, 145, 181);
+	border-color: rgb(252, 145, 181);
+}
