@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
+	
 	<parent>
 		<groupId>net.wasdev.wlp.maven.parent</groupId>
 		<artifactId>liberty-maven-app-parent</artifactId>
 		<version>2.6.4</version>
 	</parent>
-
+	
 	<distributionManagement>
 		<site>
 			<url>http://pi.rvlstudio.com</url>
@@ -18,7 +18,7 @@
 	<artifactId>Nayla</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
-
+	
 	<scm>
 		<connection>scm:git:https://github.com/reiniervl/Nayla.git</connection>
 		<developerConnection>scm:git:https://reiniervl@github.com/reiniervl/Nayla.git</developerConnection>
@@ -78,6 +78,11 @@
 			<groupId>commons-httpclient</groupId>
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
+		</dependency> <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.5</version>
 		</dependency>
 	</dependencies>
 	<!-- Build -->

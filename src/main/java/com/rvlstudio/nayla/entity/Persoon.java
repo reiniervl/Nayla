@@ -1,5 +1,6 @@
 package com.rvlstudio.nayla.entity;
 
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,10 +14,12 @@ public abstract class Persoon extends AbstractEntity {
 
 	@NotNull
 	@Size(min = 2, max = 36)
+	@Column(name = "voorNaam")
 	private String voorNaam;
 
 	@NotNull
 	@Size(min = 2, max = 48)
+	@Column(name = "achterNaam")
 	private String achterNaam;
 
 	public Persoon() {}
@@ -72,6 +75,6 @@ public abstract class Persoon extends AbstractEntity {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Persoon [achterNaam=" + achterNaam + ", voorNaam=" + voorNaam + "]";
+		return "Persoon [achterNaam=" + achterNaam + ", voorNaam=" + voorNaam + ", " + super.toString() + "]";
 	}
 }

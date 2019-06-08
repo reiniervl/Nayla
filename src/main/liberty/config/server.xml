@@ -9,4 +9,20 @@
 	<applicationManager autoExpand="true" />
 	<keyStore id="defaultKeyStore" password="mpKeystore" />
 	<webApplication location="${appLocation}" contextRoot="nayla" />
+
+	<library id="jdbc-drivers">
+		<file name="/home/reinier/.m2/repository/org/postgresql/postgresql/42.2.5/postgresql-42.2.5.jar" />
+	</library>
+
+	<dataSource id="DefaultDataSource" jndiName="jdbc/nayla">
+		<jdbcDriver id="postgresql-driver"
+	                javax.sql.XADataSource="org.postgresql.xa.PGXADataSource"
+	                javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource"
+	                libraryRef="jdbc-drivers"/>
+		<properties serverName="127.0.0.1"
+								portNumber="5432"
+								databaseName="nayla"
+								user="postgres"
+								password="admin"/>
+	</dataSource>
 </server>

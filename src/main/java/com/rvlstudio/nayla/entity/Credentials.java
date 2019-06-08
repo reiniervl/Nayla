@@ -15,7 +15,7 @@ public class Credentials implements Serializable, Cloneable {
 	private static final long serialVersionUID = 1L;
 
 	@NotNull
-	@Column(unique = true)
+	@Column(unique = true, name = "username")
 	@Size(min = 2, max = 24)
 	private String username;
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="nayla" transaction-type="JTA">
+		<jta-data-source>jdbc/nayla</jta-data-source>
+		<class>com.rvlstudio.nayla.entity.Credentials</class>
+		<class>com.rvlstudio.nayla.entity.Persoon</class>
+		<class>com.rvlstudio.nayla.entity.Ouder</class>
+		<class>com.rvlstudio.nayla.entity.Kind</class>
+		<class>com.rvlstudio.nayla.entity.data.Melk</class>
+		<class>com.rvlstudio.nayla.entity.data.Temperatuur</class>
+		<properties>			
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/nayla" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="admin" />
+			
+			<!-- EclipseLink should create the database schema automatically -->
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+			<property name="eclipselink.logging.level" value="WARNING" />
+			<property name="eclipselink.logging.logger" value="DefaultLogger" />
+			<property name="eclipselink.ddl-generation.output-mode" value="database" />
+			<property name="eclipselink.deploy-on-startup" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>

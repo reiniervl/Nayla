@@ -15,7 +15,7 @@ public abstract class AbstractJpaDAO<T extends AbstractEntity> implements DAO<T>
 	protected EntityManager em;
 
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked", "unused"})
 	private AbstractJpaDAO() {
 		this.entityClass = (Class<T>) ((ParameterizedType) getClass()
 						.getGenericSuperclass()).getActualTypeArguments()[0];

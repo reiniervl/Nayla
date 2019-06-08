@@ -70,6 +70,6 @@ public class Kind extends Persoon {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Kind [geboorteDatum=" + geboorteDatum + ", ouders=" + ouders + "]";
+		return "Kind [geboorteDatum=" + geboorteDatum + ", ouders=" + ouders + ", " + super.toString() +  "]";
 	}
 }

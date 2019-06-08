@@ -3,24 +3,35 @@ package com.rvlstudio.nayla.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 /**
  * Ouder
  */
 @Entity
+// @NamedQuery(name=Ouder.FindByName, query="SELECT o FROM Ouder o WHERE o.username=:username")
 public class Ouder extends Persoon {
 	private static final long serialVersionUID = 1L;
+	public static final String FindByName = "Ouder_FindByName";
 
 	@Embedded
 	@NotNull
+	@AttributeOverrides({
+		@AttributeOverride( name="username", column = @Column(name = "username")),
+		@AttributeOverride( name="email", column = @Column(name = "email")),
+		@AttributeOverride( name="password", column = @Column(name = "password"))
+	})
 	private Credentials credentials;
 
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+	// UNDONE: @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Kind> kinderen = new ArrayList<>();
 
 	public Ouder() {}
@@ -74,6 +85,6 @@ public class Ouder extends Persoon {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Ouder [credentials=" + credentials + ", kinderen=" + kinderen + "]";
+		return "Ouder [credentials=" + credentials + ", kinderen=" + kinderen + ", " + super.toString() + "]";
 	}
 }
