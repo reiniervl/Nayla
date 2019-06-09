@@ -22,7 +22,7 @@ http://maven.apache.org/DECORATION/1.8.0 ">
 	</skin>
 
 	<body>
-		<menu ref="parent"/>
+<!-- <menu ref="parent"/> -->
 		<menu ref="reports"/>
 	</body>
 </project>

@@ -17,6 +17,7 @@
 				<li><a href="#">home</a></li>
 				<li><a href="#">overzicht</a></li>
 				<li><a href="#">vandaag</a></li>
+				<li><a href="registreer.jsp">registreer</a></li>
 			</ul>
 		</nav>
 		<div class="account_menu">

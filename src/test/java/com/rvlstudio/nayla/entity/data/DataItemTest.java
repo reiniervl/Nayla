@@ -77,6 +77,15 @@ public class DataItemTest {
 	}
 
 	@Test
+	public void testNotEqualType() {
+		DataItem di1 = generate(false);
+		AbstractEntity ae = new AbstractEntity(di1) {
+			private static final long serialVersionUID = 1L;
+		};
+		assertFalse(di1.equals(ae));
+	}
+
+	@Test
 	public void testNotEqualTijd() {
 		DataItem di1 = generate(false);
 		DataItem di2 = generate(false);
