@@ -10,6 +10,8 @@ import com.rvlstudio.nayla.entity.Credentials;
 import com.rvlstudio.nayla.entity.Ouder;
 import com.rvlstudio.nayla.persistence.jpa.OuderJpaDAO;
 import com.rvlstudio.nayla.service.RegistreerOuder;
+import com.rvlstudio.nayla.service.transferrable.RegistreerResultTO;
+import com.rvlstudio.nayla.service.transferrable.RegistreerTO;
 
 /**
  * RegistreerOuderEJB
@@ -22,12 +24,26 @@ public class RegistreerOuderEJB implements RegistreerOuder {
 	private OuderJpaDAO ouderDAO;
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public void registreer(String voornaam, String achternaam, String password, String username, String email) {
-		Ouder ouder = new Ouder(voornaam, achternaam, new Credentials(username, password, email));
+	public RegistreerResultTO registreer(RegistreerTO registreerTO) {
+		RegistreerResultTO result;
+
+		Credentials credentials = new Credentials(
+			registreerTO.getUsername(),
+			registreerTO.getPassword(),
+			registreerTO.getEmail());
+		
+		Ouder ouder = new Ouder(
+			registreerTO.getVoornaam(),
+			registreerTO.getAchternaam(),
+			credentials);
+		
 		try {
 			ouderDAO.add(ouder);
+			result = new RegistreerResultTO(registreerTO.getUsername());
 		} catch(Exception e) {
 			e.printStackTrace();
+			result = new RegistreerResultTO();
 		}
+		return result;
 	}
 }

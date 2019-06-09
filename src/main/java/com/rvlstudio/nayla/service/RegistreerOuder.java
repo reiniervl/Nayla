@@ -2,10 +2,13 @@ package com.rvlstudio.nayla.service;
 
 import javax.ejb.Local;
 
+import com.rvlstudio.nayla.service.transferrable.RegistreerResultTO;
+import com.rvlstudio.nayla.service.transferrable.RegistreerTO;
+
 /**
  * RegistreerOuder
  */
 @Local
 public interface RegistreerOuder {
-	void registreer(String voornaam, String achternaam, String password, String username, String email);
+	RegistreerResultTO registreer(RegistreerTO registreerTO);
 }
