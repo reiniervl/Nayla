@@ -76,6 +76,15 @@ public class KindTest {
 	}
 
 	@Test
+	public void testNotEqualType() {
+		Kind kind = generateKind(false);
+		Persoon p = new Persoon(kind) {
+			private static final long serialVersionUID = 1L;
+		};
+		assertFalse(kind.equals(p));
+	}
+
+	@Test
 	public void testNotEqualNull() {
 		final LocalDate date = LocalDate.now();
 		Kind k1 = new Kind("voornaam", "achternaam", date,

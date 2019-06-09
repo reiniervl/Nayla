@@ -71,6 +71,15 @@ public class MelkTest {
 	}
 
 	@Test
+	public void testNotEqualSuper() {
+		Melk melk1 = generate(true);
+		DataItem di = new DataItem((DataItem)melk1) {
+			private static final long serialVersionUID = 1L;
+		};
+		assertFalse(melk1.equals(di));
+	}
+
+	@Test
 	public void testCompareTo() {
 		Melk melk1 = generate(false);
 		Melk melk2 = generate(false);

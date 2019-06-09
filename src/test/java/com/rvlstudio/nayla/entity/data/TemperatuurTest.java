@@ -71,6 +71,15 @@ public class TemperatuurTest {
 	}
 
 	@Test
+	public void testNotEqualType() {
+		Temperatuur temp1 = generate(false);
+		DataItem di = new DataItem(temp1) {
+			private static final long serialVersionUID = 1L;
+		};
+		assertFalse(temp1.equals(di));
+	}
+
+	@Test
 	public void testCompareTo() {
 		Temperatuur temp1 = generate(false);
 		Temperatuur temp2 = generate(false);
