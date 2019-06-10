@@ -9,6 +9,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response.Status;
 
 import com.rvlstudio.nayla.service.RegistreerOuder;
 import com.rvlstudio.nayla.service.transferrable.RegistreerResultTO;
@@ -47,8 +48,11 @@ public class OuderRegistreren {
 				contextPath = request.getContextPath() + "/index.html";
 			}
 			try {
+				response.setStatus(Status.OK.getStatusCode());
 				response.sendRedirect(contextPath);
 			} catch (IOException e) {
+				e.printStackTrace();
+			} catch(IllegalStateException e) {
 				e.printStackTrace();
 			}
 		}
