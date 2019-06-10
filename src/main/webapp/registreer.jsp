@@ -40,19 +40,19 @@
 <body>
 	<form id="inloggen" action="app/registreer" method="POST">
 		<div>
-			<input name="username" id="username" type="text" placeholder="username">
+			<input name="username" id="username" type="text" minlength="4" placeholder="username">
 		</div>
 		<div>
-			<input name="voornaam" id="voornaam" type="text" placeholder="voornaam">
+			<input name="voornaam" id="voornaam" type="text" minlength="4" placeholder="voornaam">
 		</div>
 		<div>
-			<input name="achternaam" id="achternaam" type="text" placeholder="achternaam">
+			<input name="achternaam" id="achternaam" type="text" minlength="4" placeholder="achternaam">
 		</div>
 		<div>
 			<input name="email" id="email" type="email" placeholder="email">
 		</div>
 		<div>
-			<input name="password" id="password" type="password" placeholder="password">
+			<input name="password" id="password" type="password" minlength="4" placeholder="password">
 		</div>
 		<input type="submit" value="registreer">
 	</form>
