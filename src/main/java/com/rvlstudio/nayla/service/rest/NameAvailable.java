@@ -25,7 +25,7 @@ public class NameAvailable {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response inUse(@PathParam("username") String username) {
 		JsonObject jo = Json.createObjectBuilder()
-			.add("success", "true")
+			.add("success", true)
 			.add("available", !usernameExists.exists(username))
 			.build();
 		return Response.ok(jo).build();

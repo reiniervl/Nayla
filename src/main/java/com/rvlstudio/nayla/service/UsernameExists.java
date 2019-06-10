@@ -7,5 +7,6 @@ import javax.ejb.Local;
  */
 @Local
 public interface UsernameExists {
+	// TODO: return ResultTO
 	boolean exists(String username);
 }
