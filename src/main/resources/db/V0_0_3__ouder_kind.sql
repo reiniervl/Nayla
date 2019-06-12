@@ -1,0 +1,9 @@
+INSERT INTO "ouder_kind" (kinderen_id,ouder_id) VALUES (10,4);
+INSERT INTO "ouder_kind" (kinderen_id,ouder_id) VALUES (3,8);
+INSERT INTO "ouder_kind" (kinderen_id,ouder_id) VALUES (10,7);
+INSERT INTO "ouder_kind" (kinderen_id,ouder_id) VALUES (4,1);
+INSERT INTO "ouder_kind" (kinderen_id,ouder_id) VALUES (9,2);
+INSERT INTO "ouder_kind" (kinderen_id,ouder_id) VALUES (5,7);
+INSERT INTO "ouder_kind" (kinderen_id,ouder_id) VALUES (7,9);
+INSERT INTO "ouder_kind" (kinderen_id,ouder_id) VALUES (2,6);
+INSERT INTO "ouder_kind" (kinderen_id,ouder_id) VALUES (4,6);

@@ -101,6 +101,11 @@
 			<version>1.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-maven-plugin</artifactId>
+			<version>5.2.4</version>
+		</dependency>
 	</dependencies>
 	<!-- Build -->
 	<build>
@@ -282,6 +287,19 @@
 							<destFileName>postgresql.jar</destFileName>
 						</artifactItem>
 					</artifactItems>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>5.2.4</version>
+				<configuration>
+					<url>jdbc:postgresql://localhost:5432/nayla</url>
+					<locations>filesystem:src/main/resources/db/</locations>
+					<baselineVersion>0.0.2</baselineVersion>
+					<schemas>
+						<schema>public</schema>
+					</schemas>
 				</configuration>
 			</plugin>
 			<plugin>
