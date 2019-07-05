@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="WorldService" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://pi.rvlstudio.com/nayla"
+	xmlns:hello="http://pi.rvlstudio.com/nayla/hello"
+	targetNamespace="http://pi.rvlstudio.com/nayla" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://pi.rvlstudio.com/nayla/hello" schemaLocation="hello.xsd" />
+		</xsd:schema>
+	</types>
+	<message name="HelloRequest">
+		<part name="body" element="hello:hello" />
+	</message>
+	<message name="HelloRespond">
+		<part name="body" element="hello:world" />
+	</message>
+	<portType name="WorldServicePortType">
+		<operation name="SayHello">
+			<input message="tns:HelloRequest" />
+			<output message="tns:HelloRespond" />
+		</operation>
+	</portType>
+	<binding name="WorldServiceBinding" type="tns:WorldServicePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="SayHello">
+			<soap:operation soapAction="http://pi.rvlstudio.com/nayla/SayHello" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="WorldService">
+		<port name="WorldServicePort" binding="tns:WorldServiceBinding">
+			<soap:address location="http://localhost:9080/nayla/WorldService" />
+		</port>
+	</service>
+</definitions>
