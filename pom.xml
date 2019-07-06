@@ -106,6 +106,12 @@
 			<artifactId>flyway-maven-plugin</artifactId>
 			<version>5.2.4</version>
 		</dependency>
+		<!-- <dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-codegen-plugin</artifactId>
+			<version>3.3.2</version>
+			<scope>compile</scope>
+		</dependency> -->
 	</dependencies>
 	<!-- Build -->
 	<build>
@@ -320,6 +326,33 @@
 								<liberty.test.port>${server.port.http}</liberty.test.port>
 								<war.name>${warContext}</war.name>
 							</systemPropertyVariables>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>3.3.2</version>
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+						<configuration>
+							<sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/webapp/WEB-INF/wsdl/world.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-impl</extraarg>
+										<extraarg>-server</extraarg>
+										<extraarg>-verbose</extraarg>
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
 						</configuration>
 					</execution>
 				</executions>

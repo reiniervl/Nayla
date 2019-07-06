@@ -3,13 +3,13 @@
 	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
 	xmlns="http://schemas.xmlsoap.org/wsdl/" 
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	xmlns:tns="http://pi.rvlstudio.com/nayla"
-	xmlns:hello="http://pi.rvlstudio.com/nayla/hello"
-	targetNamespace="http://pi.rvlstudio.com/nayla" 
+	xmlns:tns="http://rvlstudio.com/nayla/service/ws"
+	xmlns:hello="http://rvlstudio.com/nayla/hello"
+	targetNamespace="http://rvlstudio.com/nayla/service/ws" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<types>
 		<xsd:schema>
-			<xsd:import namespace="http://pi.rvlstudio.com/nayla/hello" schemaLocation="hello.xsd" />
+			<xsd:import namespace="http://rvlstudio.com/nayla/hello" schemaLocation="hello.xsd" />
 		</xsd:schema>
 	</types>
 	<message name="HelloRequest">
