@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions
+	name="UsernameAvailableService"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://rvlstudio.com/nayla/service/ws"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance"
+	xmlns:user="http://rvlstudio.com/nayla/user"
+	targetNameSpace="http://rvlstudio.com/nayla/service/ws">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://rvlstudio.com/nayla/user" schemaLocation="user.xsd" />
+		</xsd:schema>
+	</types>
+	<message name="UsernameAvailableRequest">
+		<part name="body" element="user:username" />
+	</message>
+	<message name="UsernameAvailableResponse">
+		<part name="body" element="user:available" />
+	</message>
+	<portType name="UsernameAvailableServicePortType">
+		<operation name="check">
+			<input message="tns:UsernameAvailableRequest" />
+			<output message="tns:UsernameAvailableResponse" />
+		</operation>
+	</portType>
+	<binding />
+	<service />
+</definitions>

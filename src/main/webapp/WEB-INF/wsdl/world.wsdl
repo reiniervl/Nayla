@@ -27,7 +27,7 @@
 	<binding name="WorldServiceBinding" type="tns:WorldServicePortType">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
 		<operation name="SayHello">
-			<soap:operation soapAction="http://pi.rvlstudio.com/nayla/SayHello" />
+			<soap:operation soapAction="http://rvlstudio.com/nayla/service/ws/SayHello" />
 			<input>
 				<soap:body use="literal" />
 			</input>

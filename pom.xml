@@ -348,7 +348,6 @@
 									<wsdl>${basedir}/src/main/webapp/WEB-INF/wsdl/world.wsdl</wsdl>
 									<extraargs>
 										<extraarg>-impl</extraarg>
-										<extraarg>-server</extraarg>
 										<extraarg>-verbose</extraarg>
 									</extraargs>
 								</wsdlOption>
