@@ -12,7 +12,8 @@
 
 	<applicationManager autoExpand="true" />
 	<keyStore id="defaultKeyStore" password="mpKeystore" />
-	<webApplication location="${locate.app}" contextRoot="nayla" />
+	<!-- <webApplication location="${locate.app}" contextRoot="nayla" /> -->
+	<webApplication contextRoot="nayla" location="${locate.app}" />
 	<quickStartSecurity userName="admin" userPassword="admin" />
 	<logging traceSpecification="com.ibm.ws.microprofile.health.*=all" />
 

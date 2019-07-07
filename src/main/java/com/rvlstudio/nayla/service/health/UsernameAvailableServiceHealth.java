@@ -2,8 +2,8 @@ package com.rvlstudio.nayla.service.health;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.Duration;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.client.ClientBuilder;
@@ -15,22 +15,23 @@ import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 
 /**
- * ServerHealth
+ * UsernameAvailableServiceHealth
  */
 @Health
 @ApplicationScoped
-public class UsernameAvailableHealth implements HealthCheck {
+public class UsernameAvailableServiceHealth implements HealthCheck {
 	private ServiceInfo getInfo() {
-		String name = "username-available";
-		ServiceInfo info;
+		ServiceInfo info = null;
+		final String name = "username-available-service";
 		try {
-			URI uri = new URI("http://localhost:9080/nayla/app/available/test");
+			URI uri = new URI("http://localhost:9080/nayla/UsernameAvailableService?wsdl");
       LocalDateTime start = LocalDateTime.now();
 			Response response = ClientBuilder.newClient()
 				.target(uri)
-				.request(MediaType.APPLICATION_JSON_TYPE)
+				.request(MediaType.TEXT_XML)
 				.get();
-			LocalDateTime end = LocalDateTime.now();
+
+      LocalDateTime end = LocalDateTime.now();
 			info = new ServiceInfo(name, response, Duration.between(start, end));
 		} catch(URISyntaxException e) {
 			info = new ServiceInfo(name);
@@ -48,5 +49,5 @@ public class UsernameAvailableHealth implements HealthCheck {
 	@Override
 	public HealthCheckResponse call() {
 		return getInfo().buildHealthCheckResponse();
-	}
+	}	
 }

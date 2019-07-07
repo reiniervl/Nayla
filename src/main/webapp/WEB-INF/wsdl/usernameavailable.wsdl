@@ -7,7 +7,7 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance"
 	xmlns:user="http://rvlstudio.com/nayla/user"
-	targetNameSpace="http://rvlstudio.com/nayla/service/ws">
+	targetNamespace="http://rvlstudio.com/nayla/service/ws">
 	<types>
 		<xsd:schema>
 			<xsd:import namespace="http://rvlstudio.com/nayla/user" schemaLocation="user.xsd" />
@@ -25,6 +25,21 @@
 			<output message="tns:UsernameAvailableResponse" />
 		</operation>
 	</portType>
-	<binding />
-	<service />
+	<binding name="UsernameAvailableServiceBinding" type="tns:UsernameAvailableServicePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="check">
+			<soap:operation soapAction="http://rvlstudio.com/nayla/service/ws/check" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body user="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="UsernameAvailableService">
+		<port name="UsernameAvailableServicePort" binding="tns:UsernameAvailableServiceBinding">
+			<soap:address location="http://localhost:9080/nayla/UsernameAvailable" />
+		</port>
+	</service>
 </definitions>
