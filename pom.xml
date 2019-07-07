@@ -45,10 +45,13 @@
 		<app.version>${project.version}</app.version>
 		<app.location>${project.build.directory}${file.separator}${project.build.finalName}.${project.packaging}</app.location>
 		<warContext>${app.name}</warContext>
-		<serverHttpPort>9080</serverHttpPort>
-		<serverHttpsPort>9443</serverHttpsPort>
 		<package.file>${project.build.directory}/${app.name}.zip</package.file>
 		<packaging.type>usr</packaging.type>
+		<server.port.http>9080</server.port.http>
+		<server.port.https>9443</server.port.https>
+		<server.name>${project.artifactId}Server</server.name>
+		<server.dir>${project.build.directory}/liberty/wlp/usr/servers/${server.name}</server.dir>
+		<server.dir.lib>${server.dir}/lib</server.dir.lib>
 	</properties>
 	
 	<dependencies>
@@ -97,6 +100,11 @@
 			<artifactId>microprofile-health-api</artifactId>
 			<version>1.0</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-maven-plugin</artifactId>
+			<version>5.2.4</version>
 		</dependency>
 	</dependencies>
 	<!-- Build -->
@@ -222,10 +230,11 @@
 					<packageFile>${package.file}</packageFile>
 					<include>${packaging.type}</include>
 					<bootstrapProperties>
-						<default.http.port>${serverHttpPort}</default.http.port>
-						<default.https.port>${serverHttpsPort}</default.https.port>
+						<default.http.port>${server.port.http}</default.http.port>
+						<default.https.port>${server.port.https}</default.https.port>
 						<app.context.root>${warContext}</app.context.root>
-						<appLocation>${app.location}</appLocation>
+						<locate.app>${app.location}</locate.app>
+						<locate.lib>${server.dir.lib}</locate.lib>
 					</bootstrapProperties>
 					<!-- <skipTestServer>true</skipTestServer> -->
 				</configuration>
@@ -256,6 +265,45 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.1</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>org.postgresql</groupId>
+							<artifactId>postgresql</artifactId>
+							<version>42.2.5</version>
+							<type>jar</type>
+							<outputDirectory>${server.dir.lib}</outputDirectory>
+							<destFileName>postgresql.jar</destFileName>
+						</artifactItem>
+					</artifactItems>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>5.2.4</version>
+				<configuration>
+					<url>jdbc:postgresql://localhost:5432/nayla</url>
+					<locations>filesystem:src/main/resources/db/</locations>
+					<baselineVersion>0.0.2</baselineVersion>
+					<schemas>
+						<schema>public</schema>
+					</schemas>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>3.0.0-M3</version>
 				<executions>
@@ -269,7 +317,7 @@
 								<include>**/it/**</include>
 							</includes>
 							<systemPropertyVariables>
-								<liberty.test.port>${serverHttpPort}</liberty.test.port>
+								<liberty.test.port>${server.port.http}</liberty.test.port>
 								<war.name>${warContext}</war.name>
 							</systemPropertyVariables>
 						</configuration>

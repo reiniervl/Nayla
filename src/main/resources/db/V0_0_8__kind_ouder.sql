@@ -1,0 +1,9 @@
+INSERT INTO "kind_ouder" (kind_id,ouders_id) VALUES (4,10);
+INSERT INTO "kind_ouder" (kind_id,ouders_id) VALUES (8,3);
+INSERT INTO "kind_ouder" (kind_id,ouders_id) VALUES (7,10);
+INSERT INTO "kind_ouder" (kind_id,ouders_id) VALUES (1,4);
+INSERT INTO "kind_ouder" (kind_id,ouders_id) VALUES (2,9);
+INSERT INTO "kind_ouder" (kind_id,ouders_id) VALUES (7,5);
+INSERT INTO "kind_ouder" (kind_id,ouders_id) VALUES (9,7);
+INSERT INTO "kind_ouder" (kind_id,ouders_id) VALUES (6,2);
+INSERT INTO "kind_ouder" (kind_id,ouders_id) VALUES (6,4);

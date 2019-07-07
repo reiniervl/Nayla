@@ -9,8 +9,5 @@
         <module name="Nayla" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Nayla" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

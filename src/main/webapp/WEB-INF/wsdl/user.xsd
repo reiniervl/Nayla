@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://rvlstudio.com/nayla/user"
+	targetNamespace="http://rvlstudio.com/nayla/user">
+	<xsd:element name="username" type="xsd:string" />
+	<xsd:element name="available" type="xsd:boolean" />
+</xsd:schema>
