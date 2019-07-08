@@ -4,6 +4,8 @@ import javax.inject.Inject;
 import javax.jws.WebService;
 
 import com.rvlstudio.nayla.service.UsernameExists;
+import com.rvlstudio.nayla.service.transferrable.UsernameExistsResultTO;
+import com.rvlstudio.nayla.service.transferrable.UsernameExistsTO;
 
 /**
  * UsernameAvailablePort
@@ -21,6 +23,7 @@ public class UsernameAvailablePort implements UsernameAvailablePortType {
 
 	@Override
 	public Boolean check(String username) {
-		return !usernameExists.exists(username);
+    UsernameExistsResultTO result = usernameExists.exists(new UsernameExistsTO(username));
+		return result.isSuccessFul() && !result.getPayload().get();
 	}
 }

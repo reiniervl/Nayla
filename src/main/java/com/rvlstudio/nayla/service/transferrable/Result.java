@@ -5,7 +5,8 @@ package com.rvlstudio.nayla.service.transferrable;
  */
 public enum Result {
 	Success(0, "Success"),
-	RegistratieMislukt(100, "Registreren is mislukt");
+	RegistratieMislukt(100, "Registreren is mislukt"),
+	UsernameAvailableOpvragenMislukt(200, "Fout tijdens het vaststellen van de beschikbaarheid");
 
 	private int code;
 	private String description;

@@ -1,6 +1,8 @@
 package com.rvlstudio.nayla.service;
 
 import javax.ejb.Local;
+import com.rvlstudio.nayla.service.transferrable.UsernameExistsResultTO;
+import com.rvlstudio.nayla.service.transferrable.UsernameExistsTO;
 
 /**
  * UsernameExists
@@ -8,5 +10,5 @@ import javax.ejb.Local;
 @Local
 public interface UsernameExists {
 	// TODO: return ResultTO
-	boolean exists(String username);
+	UsernameExistsResultTO exists(UsernameExistsTO usernameExistsTO);
 }

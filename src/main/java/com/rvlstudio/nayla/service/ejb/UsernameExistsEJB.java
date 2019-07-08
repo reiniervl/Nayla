@@ -7,6 +7,8 @@ import javax.inject.Inject;
 
 import com.rvlstudio.nayla.persistence.jpa.OuderJpaDAO;
 import com.rvlstudio.nayla.service.UsernameExists;
+import com.rvlstudio.nayla.service.transferrable.UsernameExistsResultTO;
+import com.rvlstudio.nayla.service.transferrable.UsernameExistsTO;
 
 /**
  * UsernameExistsEJB
@@ -18,7 +20,7 @@ public class UsernameExistsEJB implements UsernameExists {
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
-	public boolean exists(String username) {
-		return ouderDAO.findByUsername(username).isPresent();
+	public UsernameExistsResultTO exists(UsernameExistsTO usernameExistsTO) {
+		return new UsernameExistsResultTO(ouderDAO.findByUsername(usernameExistsTO.getUsername()).isPresent());
 	}
 }

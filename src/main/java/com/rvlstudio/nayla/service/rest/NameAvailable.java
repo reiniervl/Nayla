@@ -11,6 +11,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.rvlstudio.nayla.service.UsernameExists;
+import com.rvlstudio.nayla.service.transferrable.UsernameExistsResultTO;
+import com.rvlstudio.nayla.service.transferrable.UsernameExistsTO;
 
 /**
  * NameInUse
@@ -24,9 +26,10 @@ public class NameAvailable {
 	@Path("{username}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response inUse(@PathParam("username") String username) {
+		UsernameExistsResultTO result = usernameExists.exists(new UsernameExistsTO(username));
 		JsonObject jo = Json.createObjectBuilder()
 			.add("success", true)
-			.add("available", !usernameExists.exists(username))
+			.add("available", result.isSuccessFul() && !result.getPayload().get())
 			.build();
 		return Response.ok(jo).build();
 	}
