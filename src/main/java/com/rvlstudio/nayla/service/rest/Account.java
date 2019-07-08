@@ -19,7 +19,7 @@ public class Account {
 					@Context HttpServletRequest request,
 					@Context HttpServletResponse response) throws IOException {
 		request.getSession().setAttribute("username", username);
-		response.sendRedirect(request.getContextPath() + "/inloggen.jsp");
+		response.sendRedirect(request.getContextPath() + "/index.jsp");
 	}
 
 	@GET

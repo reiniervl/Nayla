@@ -6,6 +6,8 @@
 	<title>Nayla</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+<header wicket:id="headerPanel"></header>
+<!--
 <header>
 	<div class="ribbon">
 		<div class="brand">
@@ -16,17 +18,17 @@
 				<li><a href="#">home</a></li>
 				<li><a href="#">overzicht</a></li>
 				<li><a href="#">vandaag</a></li>
-				<li><a href="registreer.jsp">registreer</a></li>
+				<li><a href="registreer">registreer</a></li>
 			</ul>
 		</nav>
 		<div class="account_menu">
-			<a href="inloggen.jsp">inloggen</a>
+			<a wicket:id="inloggen" href="account/inloggen">inloggen</a>
 		</div>
 	</div>
 </header>
-
+-->
 <body>
-	<p>Hello, parent</p>
+	<p>Hello, <span wicket:id="hello"></span> </p>
 </body>
 
 </html>

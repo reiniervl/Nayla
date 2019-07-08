@@ -9,6 +9,5 @@ import com.rvlstudio.nayla.service.transferrable.UsernameExistsTO;
  */
 @Local
 public interface UsernameExists {
-	// TODO: return ResultTO
 	UsernameExistsResultTO exists(UsernameExistsTO usernameExistsTO);
 }

@@ -15,7 +15,6 @@ public class ObjectFactory {
 
 	@XmlElementDecl(namespace = "http://rvlstudio.com/nayla/user", name = "username")
 	public JAXBElement<String> createUsername(String username) {
-		System.out.println("!! username called");
 		return new JAXBElement<String>(username_q, String.class, null, username);
 	}
 
