@@ -85,7 +85,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.2.5</version>
+			<version>42.7.11</version>
 		</dependency>
 		<dependency>
 			<groupId>io.openliberty.features</groupId>
@@ -281,7 +281,7 @@
 						<artifactItem>
 							<groupId>org.postgresql</groupId>
 							<artifactId>postgresql</artifactId>
-							<version>42.2.5</version>
+							<version>42.7.11</version>
 							<type>jar</type>
 							<outputDirectory>${server.dir.lib}</outputDirectory>
 							<destFileName>postgresql.jar</destFileName>
